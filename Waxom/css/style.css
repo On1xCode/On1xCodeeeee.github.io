@@ -834,6 +834,7 @@ a {
 
 .scrollTopBtn {
   position: fixed;
+  z-index: 100;
   bottom: 20px;
   right: 50px;
   width: 50px;
@@ -1185,6 +1186,7 @@ a {
 }
 
 .video__play {
+  display: block;
   width: 100px;
   height: 100px;
   background-color: rgba(0, 0, 0, 0.2);

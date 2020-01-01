@@ -62,11 +62,39 @@ $(document).ready(function () {
             }
         ]
     });
+  //   $(function toggleElements (class) {
+  //     $(class).slice(0, 6).show();
+  //     $("#loadMore").on('click', function (e) {
+  //         e.preventDefault();
+  //         $("div:hidden").slice(0, 6).slideDown();
+  //         if ($("div:hidden").length == 0) {
+  //             $("#load").fadeOut('slow');
+  //         }
+  //         // $('html,body').animate({
+  //         //     scrollTop: $(this).offset().top
+  //         // }, 1500);
+  //   });
+  // });
+  // $(".portfolio__box").each(function() {
+  //     $(this).click(function() {
+  //       $(".portfolio__card").hide();
+  //       let attr = $(this).attr("data-filter");
+  //       if (attr == "all") {
+  //         console.log($(".portfolio__card"));
+  //         $(".portfolio__card").slice(0, 6).show();
+  //       } else {
+  //         console.log(attr);
+  //         $(".web").slice(0, 6).show();
+  //       }
+  //   });
+  //
+  // });
+
 });
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    
+
 
     let buttons = document.querySelectorAll(".portfolio__box");
     // Sorting
@@ -81,17 +109,14 @@ document.addEventListener("DOMContentLoaded", function () {
         buttons[i].addEventListener("click", function () {
             removeClass();
             buttons[i].classList.add('active');
+
         });
     }
 
 
 
-    // Video
-    let playBtn = document.getElementById("playBnt");
     let goTopBtn = document.getElementById("scrollTopBtn");
-    playBtn.addEventListener("click", function() {
-        return window.open("https://www.youtube.com", "_blank");
-    });
+
 
     window.addEventListener('scroll', function() {
         if (window.pageYOffset > 1000) {
@@ -112,10 +137,17 @@ document.addEventListener("DOMContentLoaded", function () {
         return $(window).width();
     }
 });
-new WOW({
-    mobile: false
-}).init();
 
+new WOW({mobile: false}).init();
+
+jQuery(document).ready(function() {
+  jQuery(".scrollTo").click(function () { // Place your classname instead of CLASSNAME
+  elementClick = jQuery(this).attr("href")
+  destination = jQuery(elementClick).offset().top;
+  jQuery("html:not(:animated),body:not(:animated)").animate({scrollTop: destination}, 1100);
+  return false;
+  });
+});
 
 var mixer = mixitup('.portfolio__wrapper-bot');
 var mixer = mixitup(containerEl);
@@ -124,6 +156,7 @@ var mixer = mixitup(containerEl, {
         target: '.blog-item'
     },
     animation: {
-        duration: 300
+        duration: 300,
+        queueLimit: 6
     }
-});
+  });

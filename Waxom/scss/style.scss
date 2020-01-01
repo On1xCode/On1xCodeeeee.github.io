@@ -760,6 +760,7 @@ $services-accent: #c7b299;
     color: #fff;
 
     &__play {
+        display: block
         width: 100px;
         height: 100px;
         background-color: rgba(#000, 0.2);
