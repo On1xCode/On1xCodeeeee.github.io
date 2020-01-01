@@ -1,0 +1,596 @@
+@import vars
+@import fonts
+@import libs
+@import custom
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+a
+	color: #fff
+	&:hover
+		color: #fff
+		text-decoration: none
+
+input, textarea
+	outline: none
+	&:focus:required:invalid
+		border-color: red
+	&:required:valid
+		border-color: green
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: 'Open Sans', sans-serif
+	overflow-x: hidden
+	color: $text
+
+
+	// font-family: 'Raleway', sans-serif
+	// font-family: 'Cardo', serif
+h1, h2, h3, h4, h5, h6
+	margin: 0
+	padding: 0
+
+// header
+.header
+	position: absolute
+	top: 0
+	left: 0
+	right: 0
+	z-index: 10
+	&__inner
+		display: flex
+		justify-content: space-between
+		align-items: center
+		padding: 30px 0
+		border-bottom: 1px solid $dark-purple
+	// &__nav
+
+	&__list
+		list-style: none
+		display: flex
+		margin: 0
+		padding: 0
+		&-item
+			margin: 0 30px
+			&:last-child
+				margin-right: 0
+	&__link
+		font-family: 'Raleway', sans-serif
+		font-size: 13px
+		font-weight: bold
+		color: #fff
+		text-transform: uppercase
+		transition: color 0.2s
+		&:hover
+			color: $accent
+		&:active
+			color: darken($accent, 15%)
+.burger
+	cursor: pointer
+	display: none
+	position: relative
+	width: 30px
+	height: 20px
+	&::before
+		content: ""
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 2px
+		background-color: $burger-color
+		transition: all 0.2s
+	&::after
+		content: ""
+		position: absolute
+		bottom: 0
+		left: 0
+		width: 100%
+		height: 2px
+		background-color: $burger-color
+		transition: all 0.2s
+	span
+		position: absolute
+		top: 9px
+		left: 0
+		width: 100%
+		height: 2px
+		background-color: $burger-color
+		transition: all 0.2s
+	&.active::before
+		background-color: #fff
+		transform: rotate(45deg)
+		top: 9px
+	&.active::after
+		background-color: #fff
+		transform: rotate(-45deg)
+		bottom: 9px
+	&.active span
+		opacity: 0
+
+
+@media screen and (max-width: 1140px)
+	.burger
+		display: block
+		position: absolute
+		top: 35px
+		right: 130px
+	body.lock
+		overflow: hidden
+
+// intro
+.intro
+	min-height: 100vh
+	padding: 100px 0
+	background-image: url(../img/intro-bg.jpg)
+	background-size: cover
+	background-position: center
+	background-repeat: no-repeat
+	&__inner
+		height: 100%
+		color: #fff
+		display: flex
+		flex-direction: column
+		justify-content: center
+		align-items: center
+		text-align: center
+	&__title
+		margin-top: 100px
+		max-width: 900px
+		padding: 0 10px
+		font-size: 65px
+		font-weight: bold
+		text-transform: uppercase
+		line-height: 1.2
+		margin-bottom: 20px
+	&__subtitle
+		font-size: 22px
+		max-width: 950px
+		padding: 0 10px
+		margin-bottom: 70px
+
+
+.btn
+	display: inline-block
+	font-family: 'Raleway', sans-serif
+	font-size: 13px
+	font-weight: 600
+	color: #fff
+	text-transform: uppercase
+	padding: 15px 50px
+	background-color: $accent
+	border-radius: 3px
+	transition: background-color 0.2s linear
+	&:hover
+		background-color: lighten($accent, 4%)
+	&:active
+		background-color: darken($accent, 4%)
+// feature
+.feature
+	padding: 100px 0
+	&__inner
+		display: flex
+		justify-content: space-between
+		flex-wrap: wrap
+	.block
+		text-align: center
+		min-width: 30%
+		font-family: 'Raleway', sans-serif
+		margin-bottom: 70px
+		&:nth-last-child(1),
+		&:nth-last-child(2),
+		&:nth-last-child(3)
+			margin-bottom: 0
+		&__img
+			width: 80px
+			height: 75px
+			background-position: center
+			background-repeat: no-repeat
+			margin: 0 auto 25px
+		&__title
+			font-size: 14px
+			font-weight: bold
+			text-transform: uppercase
+			color: $dark
+			margin-bottom: 20px
+		&__text
+			font-size: 14px
+			max-width: 320px
+			margin: 0 auto
+			padding: 0 10px
+
+// works
+.works
+	&__inner
+		display: flex
+		justify-content: space-between
+		flex-wrap: wrap
+		.block
+			min-width: 24.9%
+			height: 350px
+			background-position: center
+			background-repeat: no-repeat
+			background-size: cover
+			margin-bottom: 2px
+			&:hover .block__hover
+					opacity: 1
+			&__hover
+				font-family: 'Raleway', sans-serif
+				font-size: 14px
+				color: #fff
+				display: flex
+				flex-direction: column
+				justify-content: center
+				align-items: center
+				width: 100%
+				height: 100%
+				background-color: rgba($accent, 0.9)
+
+				opacity: 0
+				transition: all 0.3s
+				&-title
+					text-transform: uppercase
+					font-weight: bold
+// team
+.team
+	padding: 100px 0
+	&__inner
+		display: flex
+		justify-content: space-between
+		flex-wrap: wrap
+		.block
+			font-family: 'Raleway', sans-serif
+			width: 270px
+			&__img
+				height: 270px
+				background-size: cover
+				background-repeat: no-repeat
+				background-position: center
+				margin-bottom: 25px
+			&__name
+				font-size: 22px
+				color: #2d3033
+				font-weight: 500
+				margin-bottom: 10px
+			&__subtitle
+				display: block
+				font-size: 13px
+				color: $accent
+				text-transform: uppercase
+				margin-bottom: 25px
+.social
+	display: flex
+	justify-content: flex-start
+	a
+		width: 40px
+		text-align: center
+		display: inline-block
+		padding: 7px
+		color: #c6cacc
+		border: 1px solid #e8ecee
+		margin-right: 5px
+		transition: all 0.2s
+		&:hover
+			background-color: #e8ecee
+			.fab
+				color: #333
+				.fab
+					font-size: 30px
+					color: #c6cacc
+					transition: all 0.2s
+		&:active
+			background-color: darken(#e8ecee, 7%)
+			border-color: darken(#e8ecee, 7%)
+
+
+// clients
+.clients
+	position: relative
+	.column
+		padding: 70px
+		min-height: 500px
+		&:first-child
+			padding: 0
+	.slide
+		outline: none
+	&__image
+		background-size: cover
+		background-position: center
+		background-repeat: no-repeat
+	&__content
+		display: flex
+		justify-content: center
+		flex-direction: column
+		color: #fff
+		&-text
+			max-width: 510px
+			font-family: 'Cardo', serif
+			font-style: italic
+			font-size: 36px
+		&-author
+			display: block
+			font-family: 'Raleway', sans-serif
+			font-size: 13px
+			font-weight: bold
+			text-transform: uppercase
+			margin-bottom: 30px
+	&__dots
+		position: absolute
+		top: 80%
+		right: 25%
+		li
+			cursor: pointer
+			display: inline-block
+			margin: 0 4px
+			width: 12px
+			height: 12px
+			button
+				display: block
+				outline: none
+				text-indent: -9999px
+				padding: 6px
+				width: 12px
+				height: 12px
+				background-color: #755d6e
+				border-radius: 50%
+				border: none
+				transition: all 0.5s
+		li.slick-active button
+			background-color: #ffffff
+
+// download
+.download
+	text-align: center
+	padding: 80px 0
+	font-family: 'Raleway', sans-serif
+	color: #2d3033
+
+	&__inner
+		display: flex
+		justify-content: center
+		align-items: center
+		flex-direction: column
+	&__title
+		font-size: 28px
+		font-weight: 300
+		br
+			display: none
+	&__text
+		font-size: 13px
+		font-weight: bold
+		text-transform: uppercase
+		margin-bottom: 35px
+
+// info
+.info
+	padding: 70px 0 60px 0
+	background-color: #3a3e64
+	font-family: 'Raleway', sans-serif
+	color: #fff
+	text-align: center
+	font-size: 14px
+	&__title
+		font-weight: bold
+		text-transform: uppercase
+		margin-bottom: 10px
+	.social
+		justify-content: center
+		a
+			margin: 0 6px
+			border: 2px solid #fff
+			border-radius: 2px
+			&:active
+				background-color: darken(#fff, 25%)
+				border-color: darken(#fff, 25%)
+
+// footer
+.footer
+	text-align: center
+	padding: 20px 0 5px
+	background-color: #313454
+	font-family: 'Raleway', sans-serif
+	font-size: 14px
+	color: #808080
+	p
+		padding: 0 10px
+	.red
+		color: $accent
+	.white
+		color: #fff
+
+
+@media screen and (max-width: 1500px)
+	.team__inner
+			justify-content: space-around
+			.block
+				width: 370px
+				margin-bottom: 50px
+
+@media screen and (max-width: 1265px)
+	.feature
+		&__inner
+			justify-content: space-around
+		.block:nth-last-child(3)
+				margin-bottom: 70px
+
+@media screen and (max-width: 1140px)
+	.header
+		&__nav
+			position: absolute
+			top: 0
+			left: 0
+			bottom: 0
+			right: 0
+			min-height: 100vh
+			background-color: #2f334e
+			display: flex
+			justify-content: center
+			align-items: center
+			transform: translateY(-100%)
+			transition: all 0.2s
+			&.active
+				transform: translateY(0)
+		&__list
+			flex-direction: column
+			text-align: center
+			&-item
+				margin: 20px 0
+		&__link
+			font-size: 20px
+	.works__inner	.block
+				min-width: 49.9%
+	.team__inner .block
+				width: 40%
+				margin-bottom: 50px
+
+	.clients__image
+		background-position: right
+
+
+	.info
+		.f-wrap
+			flex-direction: column
+		.jc-sb
+			justify-content: center
+			align-items: center
+		.column
+			width: 50%
+			&:nth-child(2)
+				order: 1
+@media screen and (max-width: 1090px)
+	.clients
+		.f-wrap
+			flex-direction: column
+		.column
+			width: 100%
+			padding: 30px 50px
+			min-height: 400px
+			&:last-child
+				min-height: 200px
+		&__dots
+			top: 93%
+			right: 9%
+		&__image
+			background-position: center top
+		&__content
+			&-text
+				min-width: 100%
+				padding: 0 10px
+			&-author
+				padding: 0 10px
+
+
+
+@media screen and (max-width: 992px)
+	.burger
+		right: 15%
+
+
+@media screen and (max-width: 868px)
+	.intro__title
+		font-size: 48px
+	.intro__subtitle
+		font-size: 18px
+	.feature .block:nth-last-child(2)
+			margin-bottom: 70px
+	.download__title
+		br
+			display: block
+
+
+@media screen and (max-width: 768px)
+	.intro__title
+		margin-top: 150px
+		font-size: 28px
+	.intro__subtitle
+		font-size: 14px
+	.team__inner .block
+		width: 370px
+		margin-bottom: 50px
+		&:last-child
+			margin-bottom: 0
+	.clients
+		&__image
+			background-position: right top
+		&__content
+			&-text
+				font-size: 27px
+
+	.info	.column
+			width: 100%
+
+@media screen and (max-width: 576px)
+	.works__inner	.block
+				min-width: 49.75%
+				height: 250px
+	.team__inner .block
+		width: 100%
+		margin-bottom: 50px
+		&:last-child
+			margin-bottom: 0
+
+	.clients
+		.column
+			min-height: 250px
+		&__dots
+			top: 93%
+			right: 14%
+
+	.download__title
+		font-size: 24px
+	.download__text
+		font-size: 10px
+@media screen and (max-width: 420px)
+	.header__inner
+		justify-content: center
+		padding: 15px 0
+	.intro__title
+		margin-top: 130px
+		font-size: 18px
+	.intro__subtitle
+		font-size: 13px
+		margin-bottom: 30px
+	.burger
+		right: 50%
+		transform: translateX(50%)
+		top: 80px
+	.works__inner
+		justify-content: space-around
+		.block
+			min-width: 100%
+			height: 250px
+			&:last-child
+				margin-bottom: 0
+
+	.clients
+		&__content
+			&-text
+				font-size: 22px
+			&-author
+				font-size: 12px
+		&__dots
+			top: 93%
+			right: 50%
+			transform: translateX(50%)
+			.slick-dots
+				padding: 0
+				margin: 0
+
+	.download__title
+		font-size: 19px
+		line-height: 1.2
+		margin-bottom: 10px
+	.download__text
+		font-size: 10px
+
+	.footer
+		font-size: 12px
