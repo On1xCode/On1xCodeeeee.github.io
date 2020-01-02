@@ -847,7 +847,6 @@ a {
           transform: translateX(100px);
   text-align: center;
   cursor: pointer;
-  z-index: 1000;
 }
 
 .scrollTopBtn:hover {
