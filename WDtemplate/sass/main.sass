@@ -1,0 +1,487 @@
+@import vars
+@import fonts
+@import libs
+@import custom
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+input, textarea
+	outline: none
+	&:focus:required:invalid
+		border-color: red
+	&:required:valid
+		border-color: green
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: 'Roboto', sans-serif
+	overflow-x: hidden
+	color: $text
+
+
+// header
+.header
+	padding: 55px 0 20px 0
+	position: absolute
+	top: 0
+	left: 0
+	right: 0
+	width: 100%
+	&__inner
+		position: relative
+		display: flex
+		justify-content: space-between
+		align-items: center
+	&__nav
+	&__list
+		list-style: none
+		margin: 0
+		padding: 0
+		display: flex
+		&-item
+			margin: 0 21px
+			&:last-child
+				margin-right: 0
+	&__link
+		font-weight: 500
+		font-size: 16px
+		display: inline-block
+		width: 100%
+		height: 100%
+		letter-spacing: 0.1em
+		color: #000000
+		transition: all 0.2s
+		&:hover
+			color: $accent
+			text-decoration: none
+		&:active
+			color: darken($accent, 15%)
+
+.burger
+	position: absolute
+	display: none
+	width: 30px
+	height: 20px
+	&::before
+		content: ""
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 2px
+		background-color: $burger-color
+		transition: all 0.2s
+	&::after
+		content: ""
+		position: absolute
+		bottom: 0
+		left: 0
+		width: 100%
+		height: 2px
+		background-color: $burger-color
+		transition: all 0.2s
+	span
+		position: absolute
+		top: 9px
+		left: 0
+		width: 100%
+		height: 2px
+		background-color: $burger-color
+		transition: all 0.2s
+	&.active::before
+		transform: rotate(45deg)
+		top: 9px
+	&.active::after
+		transform: rotate(-45deg)
+		bottom: 9px
+	&.active span
+		opacity: 0
+
+// intro
+.intro
+	background-color: #EEEFF1
+	min-height: 100vh
+	&__inner
+		display: flex
+		justify-content: center
+		align-items: center
+		height: 100vh
+	&__title
+		font-weight: 500
+		font-size: 48px
+		color: #000000
+		margin-bottom: 20px
+	&__text
+		font-size: 16px
+		line-height: 26px
+		color: #727272
+		margin-bottom: 40px
+
+.btn
+	display: inline-block
+	padding: 15px 30px
+	background-color: #34547A
+	font-size: 16px
+	line-height: 26px
+	letter-spacing: 0.1em
+	text-transform: uppercase
+	color: #FFFFFF
+	border: 2px solid transparent
+	transition: all 0.2s
+	&:hover
+		// background-color: transparent
+		background-color: rgba(0, 0, 0, 0)
+		border-color: #34547A
+		color: #34547A
+		text-decoration: none
+	&:active
+		// background-color: transparent
+		background-color: rgba(0, 0, 0, 0.1)
+		border-color: #34547A
+		color: #34547A
+		text-decoration: none
+
+.tal
+	text-align: left
+	padding-left: 50px
+.tar
+	text-align: right
+	padding-right: 50px
+
+
+// about
+.about
+	padding: 100px
+	text-align: center
+	&__inner
+		display: flex
+		justify-content: center
+		align-items: center
+		flex-direction: column
+	&__title
+		font-weight: 500
+		font-size: 32px
+		line-height: 37px
+		text-align: center
+		color: #000000
+		margin-bottom: 20px
+	&__text
+		max-width: 520px
+		padding: 0 10px
+		font-size: 16px
+		line-height: 26px
+		text-align: center
+		color: #727272
+
+// numbers
+.numbers
+	padding: 100px 0
+	background-color: #34547A
+	.item
+		width: 140px
+		font-size: 16px
+		margin-bottom: 20px
+		&__text
+			color: #fff
+			padding-left: 20px
+			line-height: 1.3
+	.big
+		font-size: 21px
+		font-weight: bold
+
+
+// skills
+.skills
+	padding: 100px 0
+	img
+		max-width: 100%
+	&__title
+		font-weight: 500
+		font-size: 32px
+		line-height: 37px
+		color: #000000
+		margin-bottom: 20px
+	&__item
+		margin-bottom: 15px
+		&-name
+			font-size: 16px
+			color: #727272
+			font-weight: 300
+			margin-bottom: 5px
+		&-line
+			max-width: 445px
+			height: 4px
+			background-color: #C4C4C4
+			position: relative
+			&::after
+				content: ""
+				position: absolute
+				width: 80%
+				height: 4px
+				top: 0
+				left: 0
+				background-color: #34547A
+
+
+// work
+.work
+	padding: 100px 0
+	background-color: #EEEFF1
+	text-align: center
+	&__title
+		font-weight: 500
+		font-size: 32px
+		color: #000000
+		margin-bottom: 20px
+	&__text
+		font-size: 16px
+		color: #727272
+		max-width: 540px
+		padding: 0 10px
+		margin: 0 auto 40px
+	&__video
+		margin: 0 auto
+		background-image: url(../img/video-bg.jpg)
+		background-position: center
+		background-size: cover
+		background-repeat: no-repeat
+		max-width: 1110px
+		height: 600px
+		position: relative
+		img
+			position: absolute
+			top: 50%
+			left: 50%
+			transform: translate(-50%, -50%) scale(1)
+			width: 100px
+			height: 100px
+			transition: all 0.2s
+			&:hover
+				transform: translate(-50%, -50%) scale(1.15)
+
+//portfolio
+.portfolio
+	&__item
+		background-size: cover
+		background-origin: center
+		background-repeat: no-repeat
+		min-width: 25%
+		height: 350px
+		&:hover
+			.portfolio__item-hover
+				opacity: 1
+		&-hover
+			background-color: rgba(52, 84, 122, 0.8)
+			width: 100%
+			height: 100%
+			display: flex
+			justify-content: center
+			align-items: center
+			transition: all 0.3s
+			opacity: 0
+
+// partners
+.partners
+	padding: 100px 0
+
+// form
+.form
+	padding: 100px 0
+	background-color: #EEEFF1
+	text-align: center
+	&__title
+		font-weight: 500
+		font-size: 32px
+		color: #000000
+		margin-bottom: 10px
+	&__text
+		font-size: 16px
+		color: #727272
+		padding: 0 10px
+		max-width: 540px
+		margin: 0 auto 65px
+	form
+		max-width: 540px
+		margin: 0 auto
+	.row
+		width: 100%
+		display: flex
+		justify-content: space-between
+	input
+		padding: 10px 15px
+		width: 47%
+		border: none
+		color: #5F5D5D
+		margin-bottom: 30px
+		&::placeholder
+			color: #5F5D5D
+	textarea
+		padding: 10px 15px
+		width: 100%
+		height: 175px
+		border: none
+		color: #5F5D5D
+		resize: none
+		margin-bottom: 50px
+		&::placeholder
+			color: #5F5D5D
+
+
+.footer
+	padding: 50px 0
+	background-color: #34547A
+	color: #fff
+	font-size: 13px
+	&__name
+		font-weight: 500
+		font-size: 21px
+		margin-bottom: 20px
+	a
+		display: inline-block
+		margin: 0 10px
+		transition: all 0.2s
+
+
+
+@media screen and (max-width: 1240px)
+	.intro__title
+		font-size: 40px
+	.numbers .item
+		width: 33%
+		&:nth-last-child(1),
+		&:nth-last-child(2),
+		&:nth-last-child(3)
+			margin-bottom: 0
+
+@media screen and (max-width: 1100px)
+	.burger
+		display: block
+		position: absolute
+		top: 9px
+		right: 0px
+	.header
+		padding: 30px 0 20px 0
+		border-bottom: 2px solid #555
+		&__nav
+			display: none
+			position: absolute
+			top: 60px
+			width: 100%
+			height: 200px
+			background-color: #EEEFF1
+			border: 2px solid #555
+			border-top: none
+			border-radius: 0 0 5px 5px
+			box-shadow: 0px 10px 31px -4px rgba(68,68,68,0.78)
+		&__list
+			flex-direction: column
+			justify-content: center
+			align-items: center
+			height: 100%
+			&-item
+				width: 99.5%
+				padding: 6px 0
+				margin: 0
+				text-align: center
+				&:hover
+					background-color: darken(#EEEFF1, 5%)
+
+	.intro
+		padding: 70px 0 0 0
+		.f-wrap
+			flex-direction: column
+		.column
+			width: 100%
+			text-align: center
+			padding: 10px
+	.work__video
+		height: 520px
+
+	.portfolio__item
+		height: 200px
+
+	.partners
+		img
+			max-width: 23%
+@media screen and (max-width: 992px)
+	.work__video
+		height: 440px
+		img
+			width: 80px
+			height: 80px
+@media screen and (max-width: 768px)
+	.about,
+	.numbers,
+	.skills,
+	.work,
+	.partners,
+	.form
+		padding: 50px 0
+	.numbers .item
+		width: 45%
+		&:nth-last-child(3)
+			margin-bottom: 35px
+
+	.skills
+		.f-wrap
+			flex-direction: column-reverse
+		.column
+			padding: 10px
+			width: 100%
+		&__title
+			text-align: center
+		&__item-line
+			max-width: 100%
+	.work__video
+		height: 300px
+		img
+			width: 70px
+			height: 70px
+	.portfolio__item
+		height: 150px
+@media screen and (max-width: 560px)
+	.intro
+		img
+			max-width: 100%
+		&__title
+			font-size: 28px
+			margin-bottom: 5px
+	.work__video
+		height: 240px
+	.portfolio__item
+		width: 50%
+	.form
+		padding: 50px 20px
+		.row
+			flex-direction: column
+		input
+			width: 100%
+	.footer
+		text-align: center
+		&__copy
+			margin-bottom: 50px
+		.f-wrap
+			flex-direction: column
+@media screen and (max-width: 400px)
+	.intro
+		img
+			max-width: 100%
+		&__title
+			font-size: 22px
+			margin-bottom: 5px
+
+	.numbers .item
+		width: 60%
+		&:nth-last-child(2)
+			margin-bottom: 35px
+
+	.work__video
+		height: 200px
