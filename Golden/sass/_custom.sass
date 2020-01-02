@@ -1,0 +1,73 @@
+.flex-wrapper // f-wrap
+  display: flex
+.jc-sb 
+  justify-content: space-between
+.jc-sa 
+  justify-content: space-around
+.jc-c 
+  justify-content: center
+.jc-fs
+  justify-content: flex-start
+.jc-fe
+  justify-content: flex-end
+.ai-c 
+  align-items: center
+.fx-wrap 
+  flex-wrap: wrap
+.fx-no-wrap 
+  flex-wrap: nowrap
+.fx-dir-col
+  flex-direction: column
+.fx-dir-row
+  flex-direction: row
+.fx-dir-colrv
+  flex-direction: column-reverse
+.fx-dir-rowrv
+  flex-direction: row-reverse
+
+.column, .column-30, .column-70
+  padding: $gutter
+  height: 100%
+
+.column
+  width: 50%
+.column-70
+  width: 70%
+.column-60
+  width: 60%
+.column-30
+  width: 30%
+.column-40
+  width: 40%
+.grid-wrapper // g-wrap
+  display: grid
+
+// Почитать про функцию calc().
+// Попробовать реализовать самоподстраиваемые колонки
+
+
+.container
+  width: 80%
+  margin: 0 auto
+  padding: 0 $gutter
+  height: 100%
+@media (min-width: 575.98px) 
+  .container 
+    max-width: 540px
+    margin: auto
+
+@media (min-width: 767.98px) 
+  .container 
+    max-width: 720px
+
+@media (min-width: 991.98px) 
+  .container 
+    max-width: 960px
+
+@media (min-width: 1199.98px) 
+  .container 
+    max-width: 1140px
+
+@media (min-width: 1499.98px) 
+  .container 
+    max-width: 80%
