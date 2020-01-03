@@ -1,0 +1,108 @@
+@import vars
+@import fonts
+@import libs
+@import custom
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+input, textarea
+	outline: none
+	&:focus:required:invalid
+		border-color: red
+	&:required:valid
+		border-color: green
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	letter-spacing: 0.040em
+	line-height: 1.65
+	font-family: 'Roboto', sans-serif
+	overflow-x: hidden
+	color: $text
+
+h1, h2, h3, h4, h5, h6, p
+	line-height: 1
+	margin: 0
+	padding: 0
+
+.header
+	min-height: 70vh
+	background: url(../img/header-bg.jpg)
+	background-repeat: no-repeat
+	background-position: center
+	background-size: cover
+	&__logo
+		padding-top: 70px
+		text-align: center
+	&__inner
+		min-height: 60vh
+		display: flex
+		flex-direction: column
+		justify-content: center
+	&__content
+		text-align: left
+		color: #ffffff
+		&-suptitle
+			font-size: 23px
+			font-weight: bold
+			color: #b7b7b7
+		&-title
+			font-size: 63px
+			font-weight: bold
+			margin-bottom: 15px
+		&-subtitle
+			font-size: 14px
+			line-height: 21px
+			letter-spacing: 0.060em
+			max-width: 510px
+
+.gallery
+	padding: 70px
+	&__inner
+		position: relative
+	&__topline
+		display: flex
+		justify-content: flex-start
+		align-items: center
+	&__title
+		font-size: 30px
+		font-weight: 300
+		color: #000000
+		margin-right: 65px
+	&__text
+		font-size: 13px
+		font-weight: 300
+		line-height: 20px
+		color: #aeaeae
+		max-width: 540px
+	&__outer
+		margin-top: 55px
+		display: flex
+		justify-content: space-between
+		// max-width: 700px
+		// transform: scale(0.5)
+	&__wrapper
+		display: flex
+		img
+			max-width: 100%
+		&-1, &-4
+			flex-direction: row
+		&-2, &-3, &-5
+			flex-direction: column
+	&__big-image
+		margin-left: 10px
+		position: relative
+		top: -230px
+		right: 0
+
+
+@media screen and (max-width: 780px)
+	.header__logo img
+		width: 300px
