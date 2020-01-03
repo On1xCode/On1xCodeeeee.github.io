@@ -184,7 +184,7 @@ section
 	background-color: $light-gray
 	&-item
 		min-width: 300px
-		margin: 4%
+		margin: 30px
 		margin-bottom: 50px
 		overflow: hidden
 		transition: all 0.2s
@@ -447,6 +447,9 @@ section
 			transition: all 0.25s
 
 
+@media screen and (max-width: 1390px)
+	.portfolio-item:nth-child(4),
+		margin-bottom: 50px
 
 @media screen and (max-width: 1200px)
 	.team-member
@@ -457,6 +460,8 @@ section
 		display: none
 	.header-top-hamburger
 		display: flex
+	.portfolio-item:nth-child(5),
+		margin-bottom: 50px
 	.about .grid-wrapper
 			margin-top: 30px
 			grid-template-columns: 1fr 1fr
@@ -506,8 +511,9 @@ section
 			&:last-child
 				margin-bottom: 35px
 @media screen and (max-width: 576px)
-	.container
-
+	.about .container
+		width: 100%
+		padding: 0 10px
 	section
 		padding: 50px 0
 	.header-content-subtitle
@@ -532,8 +538,8 @@ section
 		width: 120px
 		height: 120px
 		&::after
-			bottom: -220%
-			height: 220%
+			bottom: -205%
+			height: 205%
 	.continue
 		font-size: 13px
 	.contact .column
