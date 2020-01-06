@@ -1,0 +1,500 @@
+@import vars
+@import fonts
+@import libs
+@import custom
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+input, textarea
+	outline: none
+	&:focus:required:invalid
+		border-color: red
+	&:required:valid
+		border-color: green
+
+html
+	font-size: 16px
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	letter-spacing: 0.04rem
+	font-family: 'Aleo', serif
+	overflow-x: hidden
+	color: $text
+
+ul, ol
+	padding: 0
+	margin: 0
+
+h1, h2, h3, h4, h5, h6, p
+	margin: 0
+	padding: 0
+
+// font-family: "WCMano", arial
+
+// header
+.header
+	position: fixed
+	z-index: 4
+	top: 0
+	left: 0
+	right: 0
+	width: 100%
+	background-color: #fff
+	padding: 40px 0
+	transition: all 0.2s
+	&__inner
+		display: flex
+		justify-content: space-between
+		align-items: center
+	&__list
+		list-style: none
+		display: flex
+		&-item
+			margin: 0 25px
+			&:last-child
+				margin-right: 0
+	&__link
+		font-family: 'Aleo', serif
+		color: #3b3b3b
+		font-size: 14px
+		letter-spacing: 0.07rem
+		transition: all 0.15s
+		&:hover
+			color: $accent
+			text-decoration: none
+		&:active
+			color: darken($accent, 15%)
+.scrolled
+	padding: 20px 0
+	box-shadow: 0px 3px 11px 2px rgba(0,0,0,0.3)
+
+
+@media screen and (max-width: $burger-breakpoint)
+	.header
+		.active
+			transform: translateY(0)
+		&__nav
+			position: absolute
+			z-index: 5
+			top: 0
+			left: 0
+			width: 100%
+			height: 100vh
+			background-color: #3b3b3b
+			display: flex
+			justify-content: center
+			align-items: center
+			transition: all 0.35s
+			transform: translateY(-100%)
+		&__list
+			flex-direction: column
+			&-item
+				text-align: center
+				margin: 25px 0
+		&__link
+			color: #fff
+			font-size: 20px
+
+
+
+
+
+
+
+// intro
+.intro
+	margin-top: 110px
+	background-position: center
+	background-size: cover
+	background-repeat: no-repeat
+	color: #fff
+	text-align: center
+	transition: all 0.2s
+	border-bottom: 4px solid #f34949
+	&__inner
+		min-height: 570px
+		display: flex
+		justify-content: center
+		align-items: center
+		flex-direction: column
+		height: 100%
+	&__title
+		font-family: "WCMano", arial
+		font-size: 6.25rem
+		letter-spacing: -0.09rem
+	&__subtitle
+		position: relative
+		&::after,
+		&::before
+			content: ""
+			width: 40px
+			height: 1px
+			background-color: #fff
+			position: absolute
+			top: 12px
+		&::after
+			left: -60px
+		&::before
+			right: -60px
+
+
+@media screen and (max-width:1260px)
+	html
+		font-size: 14px
+@media screen and (max-width:1100px)
+	html
+		font-size: 10px
+@media screen and (max-width:800px)
+	html
+		font-size: 8px
+@media screen and (max-width:480px)
+	.intro__subtitle
+		font-size: 14px
+		&::after,
+		&::before
+			width: 20px
+		&::after
+			left: -20px
+		&::before
+			right: -20px
+
+// Menu
+
+.menu
+	padding-bottom: 100px
+	&__flag
+		font-size: 20px
+		padding: 15px 0 30px 0
+		color: #fff
+		background-color: #f34949
+		width: 155px
+		margin: 0 auto
+		text-align: center
+		position: relative
+		&::after,
+		&::before
+			content: ""
+			width: 78.5px
+			height: 20px
+			background-color: #fff
+			position: absolute
+
+		&::after
+			right: 0
+			bottom: -10px
+			transform: rotate($gradus)
+		&::before
+			left: 0
+			bottom: -10px
+			transform: rotate(-$gradus)
+	&__inner
+		margin-top: 80px
+		display: flex
+		flex-direction: column
+		justify-content: space-between
+		align-items: center
+
+.dish
+	width: 45%
+	margin-bottom: 55px
+	&__inner
+		text-align: center
+	&__wrap
+		display: flex
+		// justify-content: space-between
+		align-items: center
+		color: #555555
+		letter-spacing: 0.05rem
+	&__line
+		margin-left: auto
+		margin-right: 30px
+		width: 40%
+		height: 1px
+		background-color: #e3e1e1
+	&__price
+		font-weight: bold
+	&__componets
+		font-size: 13px
+		line-height: 1.1
+		color: #b7b7b7
+		font-style: italic
+		font-weight: 300
+
+.btn
+	font-size: 14px
+	color: #b7b7b7
+	border: 1px solid #b7b7b7
+	padding: 8px 12px 6px 12px
+	display: inline-block
+	transition: all 0.2s
+	&:hover
+		color: $accent
+		border-color: $accent
+		text-decoration: none
+
+.hidden
+	display: none
+
+@media screen and (max-width:1260px)
+	.dish__line
+    width: 20%
+
+@media screen and (max-width:1040px)
+	.menu .jc-sb
+		justify-content: center
+	.dish
+		width: 60%
+		&__line
+			width: 30%
+@media screen and (max-width:900px)
+	.dish
+		width: 80%
+@media screen and (max-width:680px)
+	.dish
+		width: 100%
+@media screen and (max-width:570px)
+	.dish
+		&__wrap
+			justify-content: space-between
+		&__line
+			display: none
+@media screen and (max-width:420px)
+	.dish
+		&__name
+			font-size: 14px
+		&__componets
+			font-size: 11px
+
+// featured
+.featured
+	padding: 100px 0
+	&__wrapper
+		margin-bottom: 70px
+	&__inner
+		display: flex
+		justify-content: space-between
+		flex-wrap: wrap
+		margin: 0 -20px
+	&__item
+		font-size: 14px
+		margin: 0 20px
+.section-title
+	font-size: 20px
+	font-weight: bold
+	letter-spacing: 0.05rem
+	position: relative
+	width: 170px
+	text-transform: uppercase
+	&::after
+		content: ""
+		width: 200px
+		height: 1px
+		background-color: #e5e3e3
+		position: absolute
+		left: 110%
+		top: 13px
+.item
+	outline: none
+	&__img
+		background-size: cover
+		background-position: center
+		background-repeat: no-repeat
+		height: 200px
+		width: 100%
+		margin-bottom: 20px
+	&__wrapper
+		display: flex
+		justify-content: space-between
+		align-items: center
+		font-weight: 300
+		margin-bottom: 10px
+	&__rating
+		display: flex
+	&__price
+		font-size: 16px
+.star
+	width: 15px
+	height: 15px
+	margin: 0 1px
+	background-size: cover
+	background-position: center
+	background-repeat: no-repeat
+	&:first-child
+		margin-left: 0
+	&:last-child
+		margin-right: 0
+	&-active
+		background-image: url(../img/stars/star-active.svg)
+	&-normal
+		background-image: url(../img/stars/star-normal.svg)
+
+.slider__dots
+	ul
+		display: flex
+		list-style: none
+		li
+			button
+				outline: none
+				width: 12px
+				height: 12px
+				margin: 0 5px
+				padding: 0
+				border-radius: 50%
+				border: none
+				text-indent: -9999px
+				transition: all 0.2s
+		.slick-active button
+			background-color: #9b9b9b
+@media screen and (max-width:830px)
+	.section-title
+		width: 100%
+		text-align: center
+		&::after
+			top: 29px
+			left: 50%
+			transform: translateX(-50%)
+		//  .jc-sb
+		// justify-content: center
+
+// gallery
+.gallery
+	padding: 100px 0
+	&__inner
+		margin-top: 70px
+		display: flex
+		flex-wrap: wrap
+	.col
+		width: 33.33%
+		display: flex
+		flex-direction: column
+		img
+			min-width: 100%
+@media screen and (max-width:1140px)
+	.gallery
+		.col
+
+			width: 50%
+			&:first-child
+				max-height: 480px
+			&:nth-last-child(1)
+				flex-direction: row
+
+@media screen and (max-width:830px)
+	.gallery
+		.col
+			margin: 0 auto
+			width: 60%
+			&:first-child
+				max-height: auto
+			&:nth-last-child(1)
+				flex-direction: column
+
+@media screen and (max-width:670px)
+	.gallery
+		.col
+			width: 80%
+@media screen and (max-width:570px)
+	.gallery
+		.col
+			width: 100%
+@media screen and (max-width:470px)
+	.gallery
+		.container
+			padding: 0
+			width: 100%
+			max-width: 100%
+		.col
+			width: 100%
+// footer
+.footer
+	background-color: #3b3b3b
+	color: #ebebeb
+	padding: 100px 0 80px 0
+	.col
+		width: 24%
+	&__title
+		font-weight: 300
+		font-size: 15px
+		margin-bottom: 5px
+	&__info
+		max-width: 200px
+		margin-bottom: 5px
+	&__number
+		font-weight: bold
+		color: #ebebeb
+		transition: all 0.2s
+		&:hover
+			text-decoration: none
+			color: $accent
+		&:active
+			color: darken($accent, 7%)
+	&__list
+		list-style: none
+		display: flex
+		flex-direction: column
+		&-item
+			margin: 4px 0
+			&:first-child
+				margin-top: 0
+			&:last-child
+				margin-bottom: 0
+	&__link
+		font-size: 14px
+		letter-spacing: 0.07rem
+		color: #ebebeb
+		transition: all 0.15s
+		&:hover
+			color: $accent
+			text-decoration: none
+		&:active
+			color: darken($accent, 7%)
+	&__logo
+		margin-bottom: 20px
+
+@media screen and (max-width:1000px)
+	.footer
+		.col
+			width: 45%
+			padding-bottom: 20px
+			border-bottom: 1px solid #ebebeb
+			margin-bottom: 20px
+			&:nth-last-child(1),
+			&:nth-last-child(2)
+				border: none
+@media screen and (max-width:630px)
+	.footer
+		.f-wrap
+			justify-content: center
+			align-items: center
+		.col
+			width: 55%
+			&:nth-last-child(2)
+				border-bottom: 1px solid #ebebeb
+@media screen and (max-width:460px)
+	.footer
+		.f-wrap
+			justify-content: center
+			align-items: center
+		.col
+			width: 100%
+
+
+
+@media screen and (max-width:880px)
+	.menu
+		padding: 0 0 50px
+	.featured
+		padding: 50px 0
+	.gallery
+		padding: 50px 0 0
+	.footer
+		padding: 50px 0 30px
