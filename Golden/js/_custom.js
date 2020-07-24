@@ -19,10 +19,13 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 jQuery(document).ready(function() {
-  jQuery(".menu-link").click(function () { // Place your classname instead of CLASSNAME
+  jQuery(".menu-link, .header-btn").click(function () { // Place your classname instead of CLASSNAME
   elementClick = jQuery(this).attr("href")
   destination = jQuery(elementClick).offset().top;
   jQuery("html:not(:animated),body:not(:animated)").animate({scrollTop: destination}, 1100);
   return false;
   });
 });
+
+
+new WOW().init();
