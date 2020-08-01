@@ -1,0 +1,861 @@
+@import "../../node_modules/normalize.css/normalize"
+@import "../../node_modules/slick-carousel/slick/slick.scss"
+
+@import mixins
+@import vars
+@import fonts
+@import icomoon
+
+*
+	outline: none !important
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+input, textarea
+	outline: none
+	&:focus:required:invalid
+		border-color: red
+	&:required:valid
+		border-color: green
+
+h1,h2,h3,h4
+	margin: 0
+	padding: 0
+
+a
+	text-decoration: none
+	color: $text
+
+ul
+	list-style: none
+	margin: 0
+	padding: 0
+
+body
+	font-size: $main-font-size
+	min-width: 320px
+	position: relative
+	line-height: 20px
+	font-family: "Open Sans", sans-serif
+	overflow-x: hidden
+	color: $text
+	box-sizing: border-box
+
+.container
+	max-width: 1170px
+	margin: 0 auto
+	padding: 0 15px
+
+// ===== Header =====
+.header
+	background-color: #fff
+
+.header__inner-bottom
+	border-top: 1px solid #f2f2f2
+
+.top-header
+	padding: 10px 15px
+	display: flex
+	justify-content: space-between
+	align-items: center
+	&__text
+		padding-left: 22px
+		&-adress,
+		&-email
+			position: relative
+		&-adress::before,
+		&-email::before
+			position: absolute
+			font-family: "icomoon"
+			top: 0
+			left: -3px
+			font-size: 22px
+			color: $header-menu-accent
+		&-adress::before
+			content: "\e947"
+		&-email::before
+			content: "\e908"
+
+.recall-bnt
+	text-transform: uppercase
+	color: $header-accent
+	letter-spacing: 0.5px
+	font-size: 13px
+	padding: 8px 16px
+	border: 1px solid $header-accent
+	border-radius: 5px
+	transition: all 0.3s
+	@media screen and (min-width: $md1)
+		&:hover
+			background-color: $header-accent
+			color: #fff
+		&:active
+			background-color: $accent
+			border-color: $accent
+			color: #fff
+
+.info
+	font-weight: bold
+	&__number
+		font-size: 18px
+	&__work-time
+		font-size: 10px
+		display: block
+		font-weight: bold
+
+.bottom-header
+	display: flex
+	justify-content: space-between
+	height: 50px
+
+.menu
+	display: flex
+	list-style: none
+	&__link
+		padding: 0 25px
+		font-weight: 600
+		text-transform: uppercase
+		display: block
+		height: 100%
+		display: flex
+		align-items: center
+		transition: all 0.2s
+		&-arrow
+			padding: 0 45px 0 25px
+			position: relative
+			&::before
+				content: "\e905"
+				position: absolute
+				font-family: 'icomoon'
+				top: 50%
+				transform: translate(-50%,-50%)
+				right: 5px
+				font-size: 22px
+				color: #000
+
+		@media screen and (min-width: $md1)
+			&:hover
+				background-color: $header-menu-accent
+				color: #fff
+
+@media screen and (min-width: $md1)
+	.menu__link:hover.menu__link-arrow::before
+		color: #fff
+
+.bottom-header nav,
+.menu,
+.menu__item
+	height: 100%
+
+.menu__item
+	position: relative
+
+.user
+	font-weight: 600
+	text-transform: uppercase
+	display: flex
+	align-items: center
+	&__option
+		padding: 0 25px 0 50px
+		height: 100%
+		display: flex
+		align-items: center
+		cursor: pointer
+		position: relative
+		transition: all 0.2s
+		@media screen and (min-width: $md1)
+			&:hover
+				background-color: #f2f2f2
+			&:active
+				background-color: darken(#f2f2f2, 10%)
+		&::before
+			position: absolute
+			font-family: 'icomoon'
+			top: 50%
+			transform: translate(-50%,-50%)
+			left: 25px
+			font-size: 23px
+			color: $header-menu-accent
+
+.cabinet::before
+	content: "\e904"
+.cart::before
+	content: "\e903"
+
+.inner-menu
+	position: absolute
+	left: 50%
+	transform: translate(-50%)
+	background-color: #fff
+	width: 100%
+	&__item
+		height: 48px
+		width: 100%
+		display: flex
+		align-items: center
+		justify-content: center
+		border-bottom: 1px solid #f2f2f2
+	&__link
+		text-transform: uppercase
+		font-weight: 600
+		display: block
+		transition: all 0.2s
+		height: 100%
+		width: 100%
+		line-height: 48px
+		text-align: center
+		&:hover
+			background-color: $header-menu-accent
+			color: #fff
+
+.hidden
+	display: none
+
+.mobile-logo
+	display: none
+
+.burger
+	display: none
+	position: relative
+	width: 30px
+	height: 20px
+	cursor: pointer
+	&::before
+		content: ""
+		position: absolute
+		top: 0
+		left: 0
+		width: 100%
+		height: 2px
+		background-color: $burger-color
+		transition: all 0.2s
+	&::after
+		content: ""
+		position: absolute
+		bottom: 0
+		left: 0
+		width: 100%
+		height: 2px
+		background-color: $burger-color
+		transition: all 0.2s
+	span
+		position: absolute
+		top: 9px
+		left: 0
+		width: 100%
+		height: 2px
+		background-color: $burger-color
+		transition: all 0.2s
+	&.active::before
+		background-color: $burger-color
+		transform: rotate(45deg)
+		top: 9px
+	&.active::after
+		background-color: $burger-color
+		transform: rotate(-45deg)
+		bottom: 9px
+	&.active span
+		opacity: 0
+
+@media screen and (max-width:1100px)
+	.header .top-header__text-email
+		display: none
+	.user__option
+		padding: 0 25px
+		&-ic
+			font-size: 0
+
+@media screen and (max-width: 920px)
+	.header .top-header__text-adress
+		display: none
+	.header .info
+		display: none
+	.top-header__recall
+		display: none
+
+	.user__option
+		height: 50px
+
+	.top-header
+		height: 80px
+		position: relative
+
+	.top-header__logo
+		position: absolute
+		left: 50%
+		top: 50%
+		@include center()
+	.burger
+		display: block
+
+	.bottom-header
+		display: none
+
+@media screen and (max-width: 570px)
+	.desktop-logo
+		display: none
+	.mobile-logo
+		display: block
+	.top-header
+		padding: 5px 15px
+		height: 55px
+
+@media screen and (max-width: 495px)
+	.user__option
+		margin-left: 10px
+		padding: 0 15px
+		height: 30px
+		&::before
+
+			left: 50%
+// ==x== Header ==x==
+
+.intro
+	background-image: url(../img/intro/intro-bg.jpg)
+	background-size: cover
+	background-position: center
+	background-repeat: no-repeat
+
+	&__carousel
+
+.carousel
+	position: relative
+	outline: none
+	&__body
+		outline: none
+
+	&__dots
+		position: absolute
+		left: 50%
+		bottom: 65px
+		transform: translateX(-50%)
+	&__btn
+		position: absolute
+		top: 50%
+		width: 50px
+		height: 50px
+		background-color: rgba(0,0,0,0.4)
+		border-radius: 50%
+		cursor: pointer
+		@media ( max-width: 1425px )
+			display: none
+		span
+			position: relative
+			display: block
+			width: 100%
+			height: 100%
+
+		span::before
+			position: absolute
+			top: 49%
+			transform: translate(-50%, -50%)
+			font-family: 'icomoon'
+			font-size: 50px
+			color: #fff
+
+	&__btn-prev
+		left: 5%
+		span::before
+			content: "\e902"
+			left: 48%
+
+	&__btn-next
+		right: 5%
+		span::before
+			content: "\e901"
+			left: 48%
+
+.slide
+	width: 100%
+	padding-top: 120px
+	padding-bottom: 140px
+	&__title
+		font-family: "Lemon Tuesday", sans-serif
+		font-size: 110px
+		line-height: 1
+		color: $light-green
+		// max-width: 550px
+		width: auto
+		margin-bottom: 40px
+		position: relative
+		@media (max-width: $maxWidth + px)
+			@include adp-font(110, 49)
+		&::after
+			content: "скидка 15%"
+			position: absolute
+			top: 0
+			// right: -160px
+			left: 55%
+			width: 140px
+			height: 140px
+			border-radius: 50%
+			color: #fff
+			background-color: #d81f24
+			background: rgb(182,31,36)
+			background: linear-gradient(9deg, #b61f24 0%, #dd2024 100%)
+
+			font-family: "Open Sans", sans-serif
+			font-size: 29px
+			text-align: center
+			display: flex
+			align-items: center
+			line-height: 1.2
+	&__text
+		font-size: 27px
+		font-style: italic
+		color: #fff
+		margin-bottom: 60px
+		@media (max-width: $maxWidth + px)
+			@include adp-font(27, 12)
+	&__btn
+		text-transform: uppercase
+		color: #fff
+		font-size: 16px
+		background-color: $accent
+		border-radius: 5px
+		padding: 16px 70px
+
+.btn
+	text-transform: uppercase
+	display: inline-block
+	color: #fff
+	font-size: 16px
+	background-color: $accent
+	border-radius: 5px
+	border: none
+	outline: none
+	transition: background-color 0.15s
+	cursor: pointer
+	@media screen and (min-width: $md1)
+		&:hover
+			background-color: lighten($accent, 5%)
+		&:active
+			background-color: darken($accent, 5%)
+
+.intro .slick-dots
+	display: flex
+	align-items: center
+	li
+		margin: 0 12px 0 12px
+		button
+			font-size: 0
+			width: 15px
+			height: 15px
+			border-radius: 50%
+			border: 2px solid #c2c2c2
+			background: transparent
+			outline: none
+			transition: all 0.2s
+			padding: 0
+	li.slick-active
+		button
+			border-color: $light-green
+			background: $light-green
+
+@media screen and ( max-width: 865px )
+	.slide__title::after
+		top: 60px
+
+@media screen and ( max-width: 750px )
+	.slide__title::after
+		width: 90px
+		height: 90px
+		font-size: 18px
+	.slide
+		padding-top: 60px
+		padding-bottom: 80px
+	.carousel__dots
+		bottom: 30px
+
+@media screen and ( max-width: 570px )
+	.slide__title::after
+		top: 70px
+		width: 65px
+		height: 65px
+		font-size: 14px
+	.slide
+		padding-top: 45px
+		padding-bottom: 60px
+		&__text
+			margin-bottom: 15px
+		&__btn
+			display: none
+	.carousel__dots
+		bottom: -40px
+
+	// ===== Popup =====
+
+.popup
+	position: fixed
+	left: 0
+	top: 0
+	right: 0
+	bottom: 0
+	z-index: 110
+	&__background
+		position: fixed
+		left: 0
+		top: 0
+		right: 0
+		bottom: 0
+		background-color: rgba(0, 0, 0, 0.6)
+		z-index: 100
+
+	.recall
+		width: 300px
+		background-color: #fff
+		position: absolute
+		left: 50%
+		top: 50%
+		transform: translate(-50%,-50%)
+		border-radius: 5px
+		padding: 30px
+		z-index: 110
+	&__close-btn
+		margin-bottom: 50px
+		span
+			float: right
+			position: relative
+			width: 30px
+			height: 30px
+			cursor: pointer
+		span::before,
+		span::after
+			content: ""
+			position: absolute
+			display: block
+			width: 30px
+			height: 2px
+			background-color: #000
+			top: 50%
+			left: 50%
+		span::before
+			transform: translate(-50%,-50%) rotate(45deg)
+		span::after
+			transform: translate(-50%,-50%) rotate(-45deg)
+	&__title
+		font-size: 16px
+	&__form
+		margin-top: 35px
+		label
+			margin-left: 10px
+			margin-bottom: 5px
+			font-size: 14px
+		input
+			padding: 8px 10px
+			border-radius: 5px
+			border: 1px solid #c2c2c2
+			transition: border-color 0.15s
+			&:focus
+				border-color: $accent
+		&-error
+			color: red
+			height: 20px
+		&-btn
+			padding: 10px 40px
+			margin-left: auto
+	&__basket
+		box-sizing: border-box
+		position: absolute
+		right: 0
+		top: 0
+		bottom: 0
+		z-index: 110
+		background-color: #fff
+		padding: 30px
+		transition: transform 0.2s
+		transform: translateX(100%)
+		width: 440px
+		@media ( max-width: 1440px)
+			width: 440px
+		@media ( max-width: 920px)
+			width: 380px
+		@media ( max-width: 540px)
+			width: 320px
+		&.active
+			transform: translateX(0)
+	&__menu
+		box-sizing: border-box
+		width: 100%
+		max-width: 380px
+		min-width: 320px
+		padding: 30px 60px 60px 60px
+		position: absolute
+		top: 0
+		left: 0
+		z-index: 110
+		background-color: #fff
+		transition: transform 0.2s
+		transform: translate(-100%)
+		&.active
+			transform: translate(0)
+
+.basket
+
+	&__close-btn
+		float: left
+
+.popup__menu .menu
+	display: block
+	margin-top: 45px
+	&__item
+		margin-bottom: 30px
+	&__link
+		padding: 0
+		&-arrow::before
+			display: none
+
+.popup-pos
+	margin-top: 40px
+.popup-mail
+	margin-top: 20px
+
+.menu__close-btn
+	float: right
+	width: 100%
+	height: 30px
+	margin-bottom: 15px
+
+.popup__info
+	margin-bottom: 20px
+
+.form-group
+	display: flex
+	flex-direction: column
+	margin-bottom: 20px
+
+// ===== Sets =====
+.sets
+	margin-top: 50px
+.pd
+	padding-top: 30px
+	padding-bottom: 100px
+
+.section__title
+	font-family: "Lemon Tuesday", sans-serif
+	text-align: center
+	font-size: 60px
+	color: $dark-blue
+	margin-bottom: 75px
+	span
+		position: relative
+	span::before,
+	span::after
+		content: ""
+		position: absolute
+		top: 50%
+		transform: translateY(-50%)
+		width: 74px
+		height: 27px
+		display: block
+	span::before
+		left: -95px
+		background-image: url(../img/icons/section-title-left.png)
+	span::after
+		right: -95px
+		background-image: url(../img/icons/section-title-right.png)
+	@media (max-width: $maxWidth + px)
+		@include adp-font(60, 44)
+
+.products-carousel
+	position: relative
+	&__body
+		display: flex
+		justify-content: space-between
+		width: 100%
+	&__control
+
+.carousel-item
+	border-radius: 10px
+	box-shadow: 0px 4px 29px 0px rgba(0, 0, 0, 0.08)
+	max-width: 265px
+	overflow: hidden
+	text-align: center
+	// margin: 0 15px
+	margin: 0 auto
+	outline: none
+	&__image
+		height: 230px
+		overflow: hidden
+		display: flex
+		justify-content: center
+		img
+			margin: 0 auto
+			height: 100%
+			width: 100%
+			object-fit: cover
+	&__inner
+		padding: 25px
+	&__name
+		font-size: 20px
+		font-weight: bold
+		text-overflow: ellipsis
+		white-space: nowrap
+		overflow: hidden
+	&__info
+		font-size: 12px
+		font-weight: 300
+	&__wrap
+		display: flex
+		justify-content: space-between
+		margin-top: 20px
+		margin-bottom: 20px
+	&__price
+		font-family: "Roboto Slab", sans-serif
+		font-size: 22px
+		font-weight: bold
+	&__btn
+		font-size: 14px
+		width: 100%
+		padding: 12px 10px 12px 35px
+		text-align: left
+		position: relative
+		&::after
+			font-family: "icomoon"
+			content: "\e903"
+			display: block
+			position: absolute
+			top: 45%
+			right: 30px
+			transform: translate(-50%,-50%)
+			font-size: 20px
+
+.counter
+	display: flex
+	justify-content: space-between
+	align-items: center
+	min-width: 65px
+	&__btn
+		width: 13px
+		height: 13px
+		border: 2px solid #c2c2c2
+		border-radius: 50%
+		display: flex
+		align-items: center
+		justify-content: center
+		cursor: pointer
+		padding: 0
+		&-minus
+			line-height: 6px
+
+.carousel-control
+	position: absolute
+	bottom: -50px
+	left: 50%
+	transform: translateX(-50%)
+	display: flex
+	justify-content: center
+	align-items: center
+	&__btn
+		margin: 0 25px
+		width: 27px
+		height: 20px
+		cursor: pointer
+		span
+			width: 100%
+			height: 100%
+			display: block
+			position: relative
+			&::before
+				color: #b3b3b3
+				font-family: "icomoon"
+				position: absolute
+				top: 50%
+				transform: translateY(-50%)
+				transition: color 0.2s
+		&-prev span
+			&::before
+				content: "\e907"
+				left: 0
+		&-next span
+			&::before
+				content: "\e906"
+				right: 0
+
+		&.slick-disabled span::before
+			color: #808080
+
+	&__dots
+		.slick-dots
+			display: flex
+			li
+				display: flex
+				align-items: center
+				margin: 0 11px
+				button
+					font-size: 0
+					width: 8px
+					height: 8px
+					border-radius: 50%
+					background: #b3b3b3
+					outline: none
+					transition: all 0.2s
+					padding: 0
+					cursor: pointer
+					border: none
+			li.slick-active
+				button
+					background: $light-green
+
+.popular-dish,
+.veg-dish,
+.spicy-dish
+	position: relative
+	&::after
+		position: absolute
+		top: 10px
+		right: 10px
+		z-index: 10
+		width: 50px
+		height: 50px
+		font-family: "Roboto Slab"
+		font-weight: bold
+		font-size: 14px
+		color: #fff
+		display: flex
+		align-items: center
+		justify-content: center
+		box-shadow: 0px 7px 10px 0px rgba(0, 0, 0, 0.39)
+		border-radius: 50%
+		// color: #fff
+
+.popular-dish::after
+	content: "хит"
+	color: #fff
+	text-transform: uppercase
+	background: linear-gradient(9deg, #b61f24 0%, #dd2024 100%)
+
+.spicy-dish::after
+	font-family: "icomoon"
+	content: "\e9a9"
+	background: linear-gradient(9deg, #b61f24 0%, #dd2024 100%)
+	font-size: 25px
+
+.veg-dish::after
+	content: "veg"
+	background: linear-gradient(9deg, #1c6d03 0%, #58a505 100%)
+
+.new-dish
+	position: relative
+	&::before
+		content: "new"
+		position: absolute
+		left: -20px
+		top: 10px
+		height: 23px
+		width: 90px
+		z-index: 10
+		background-color: $light-green
+		font-family: "Roboto Slab"
+		font-weight: bold
+		color: #fff
+		transform: rotate(-40deg)
+
+.slick-slide
+	display: flex
+	justify-content: center
