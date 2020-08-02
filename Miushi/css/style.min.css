@@ -1427,8 +1427,6 @@ body {
 }
 
 .products-carousel__body {
-  display: flex;
-  justify-content: space-between;
   width: 100%;
 }
 

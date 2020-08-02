@@ -1,211 +1,13 @@
 const dynamicAdaptive = (breakPoint, element, newParent, initialParent) => {
-  // let parent = $(element).attr("class");
-  // parent.substring(0, parent.indexOf(" "));
   if (document.body.clientWidth < breakPoint) {
     $(element).appendTo($(newParent));
   } else {
     $(element).appendTo($(initialParent));
   }
 }
-$(document).ready(() => {
-
-  const sliderSections = [".sets", ".rolls", ".pizza"];
-
-  // $.each(sliderSections, (i, element) => {
-  //   $(element).find(".products-carousel__body").slick({
-  //     slidesToShow: 2,
-  //     slidesToScroll: 1,
-  //     infinite: false,
-  //     prevArrow: $(element).find(".carousel-control__btn-prev"),
-  //     nextArrow: $(element).find(".carousel-control__btn-next"),
-  //     appendDots: $(element).find(".carousel-control__dots"),
-  //     dots: true,
-  //     responsive: [
-  //       {
-  //         breakpoint: 5000,
-  //         settings: {
-  //           slidesToShow: 4,
-  //         }
-  //       },
-  //       {
-  //         breakpoint: 1170,
-  //         settings: {
-  //           slidesToShow: 3,
-  //         }
-  //       },
-  //       {
-  //         breakpoint: 936,
-  //         settings: {
-  //           slidesToShow: 2,
-  //         }
-  //       },
-  //       {
-  //         breakpoint: 600,
-  //         settings: {
-  //           slidesToShow: 1,
-  //         }
-  //       },
-  //       {
-  //         breakpoint: 300,
-  //         settings: {
-  //           slidesToShow: 1,
-  //           dots: false
-  //         }
-  //       }
-  //     ]
-  //   });
-  // });
 
 
-  $(".sets-carousel__body").slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    infinite: false,
-    prevArrow: $(".sets-carousel-control__btn-prev"),
-    nextArrow: $(".sets-carousel-control__btn-next"),
-    appendDots: $(".sets-carousel-control__dots"),
-    dots: true,
-    responsive: [
-      {
-        breakpoint: 9000,
-        settings: {
-          slidesToShow: 4,
-        }
-      },
-      {
-        breakpoint: 1160,
-        settings: {
-          slidesToShow: 3,
-        }
-      },
-      {
-        breakpoint: 890,
-        settings: {
-          slidesToShow: 2,
-          dots: false
-        }
-      },
-      {
-        breakpoint: 615,
-        settings: {
-          slidesToShow: 1,
-          dots: true
-        }
-      },
-      {
-        breakpoint: 520,
-        settings: {
-          slidesToShow: 1,
-          dots: false
-        }
-      }
-    ]
-  });
-
-  // window.resizeBy(-50, 150);
-  // console.log(window.innerWidth)
-  // window.innerWidth--
-  // console.log(window.innerWidth)
-
-  // window.screen.width = window.screen.width - 1
-  // console.log(window.screen.width)
-  // ++window.screen.width
-  // console.log(window.screen.width)
-
-
-  $(".rolls-carousel__body").slick({
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    infinite: false,
-    prevArrow: $(".rolls-carousel-control__btn-prev"),
-    nextArrow: $(".rolls-carousel-control__btn-next"),
-    appendDots: $(".rolls-carousel-control__dots"),
-    dots: true,
-    responsive: [
-      {
-        breakpoint: 9000,
-        settings: {
-          slidesToShow: 4,
-        }
-      },
-      {
-        breakpoint: 1160,
-        settings: {
-          slidesToShow: 3,
-        }
-      },
-      {
-        breakpoint: 890,
-        settings: {
-          slidesToShow: 2,
-          dots: false
-        }
-      },
-      {
-        breakpoint: 615,
-        settings: {
-          slidesToShow: 1,
-          dots: true
-        }
-      },
-      {
-        breakpoint: 520,
-        settings: {
-          slidesToShow: 1,
-          dots: false
-        }
-      }
-    ]
-  });
-
-  // $(".rolls-carousel__body").slick({
-  //   slidesToShow: 1,
-  //   slidesToScroll: 1,
-  //   infinite: false,
-  //   prevArrow: $(".rolls").find(".carousel-control__btn-prev"),
-  //   nextArrow: $(".rolls").find(".carousel-control__btn-next"),
-  //   appendDots: $(".rolls").find(".carousel-control__dots"),
-  //   dots: true,
-  //   responsive: [
-  //     {
-  //       breakpoint: 9000,
-  //       settings: {
-  //         slidesToShow: 4,
-  //       }
-  //     },
-  //     {
-  //       breakpoint: 1160,
-  //       settings: {
-  //         slidesToShow: 3,
-  //       }
-  //     },
-  //     {
-  //       breakpoint: 890,
-  //       settings: {
-  //         slidesToShow: 2,
-  //         dots: false
-  //       }
-  //     },
-  //     {
-  //       breakpoint: 615,
-  //       settings: {
-  //         slidesToShow: 1,
-  //         dots: true
-  //       }
-  //     },
-  //     {
-  //       breakpoint: 520,
-  //       settings: {
-  //         slidesToShow: 1,
-  //         dots: false
-  //       }
-  //     }
-  //   ]
-  // });
-
-
-
-
+$(window).on("load", () => {
 
   $(".carousel__body").slick({
     infinite: true,
@@ -222,6 +24,60 @@ $(document).ready(() => {
       }
     ]
   });
+
+  const sliderSections = [".sets", ".rolls", ".pizza"];
+
+  $.each(sliderSections, (i, el) => {
+    $(el).find(".products-carousel__body").slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      infinite: false,
+      prevArrow: $(el).find(".carousel-control__btn-prev"),
+      nextArrow: $(el).find(".carousel-control__btn-next"),
+      appendDots: $(el).find(".carousel-control__dots"),
+      dots: false,
+      mobileFirst: true,
+      responsive: [
+        {
+          breakpoint: 460,
+          settings: {
+            dots: true
+          }
+        },
+        {
+          breakpoint: 575,
+          settings: {
+            slidesToShow: 2,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 870,
+          settings: {
+            slidesToShow: 3,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 1130,
+          settings: {
+            slidesToShow: 4,
+            dots: true
+          }
+        }
+      ]
+    });
+  });
+
+
+
+});
+
+
+
+
+$(document).ready(() => {
+
 
   $("#recall__open-btn, #menu-recall__open-btn").on("click", (event) => {
     event.preventDefault();
@@ -287,11 +143,6 @@ $(document).ready(() => {
   });
 
 
-
-
-
-
-
   // counter 
   let counter = $(".counter");
   $.each(counter, (i, element) => {
@@ -302,7 +153,6 @@ $(document).ready(() => {
 
     $.each(counterButtons, (i, button) => {
       $(button).on("click", () => {
-        console.log("clicked");
         if ($(button).hasClass("counter__btn-minus") && counterValue > 0) {
           $(counterNumber).text(--counterValue)
         } else if ($(button).hasClass("counter__btn-plus")) {
@@ -315,9 +165,9 @@ $(document).ready(() => {
 
 
 
-dynamicAdaptive(920, ".user", ".top-header", ".bottom-header");
 
 
-$(window).on("resize", () => {
+$(window).on("load resize", () => {
   dynamicAdaptive(920, ".user", ".top-header", ".bottom-header");
+
 });
