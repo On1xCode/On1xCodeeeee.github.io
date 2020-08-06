@@ -1,6 +1,6 @@
 // Подключение JSON
 const init = () => {
-   $.getJSON("On1xCode.github.io/Miushi/json/products.json", getProducts);
+   $.getJSON("https://on1xcode.github.io/Miushi/json/products.json", getProducts);
 };
 
 // Получение товаров с JSON 
